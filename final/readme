@@ -1,4 +1,0 @@
-mv credentials ~/.aws
-https://console.aws.amazon.com/s3/home?region=us-west-2
-aws_access_key_id = AKIAIETFEW77FTVUWUNQ
-aws_secret_access_key = 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
