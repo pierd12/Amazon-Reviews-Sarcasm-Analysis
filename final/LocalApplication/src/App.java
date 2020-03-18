@@ -377,57 +377,11 @@ public class App
     @SuppressWarnings("deprecation")
 	public static void runInstance()
 			throws UnsupportedEncodingException, InterruptedException {
-		//String str = new String(Base64.encodeBase64("wget https://manager15.s3-us-west-2.amazonaws.com/Manager-0.0.1-SNAPSHOT-jar-with-dependencies.jar".getBytes()), "UTF-8");
-    	//String groupName = "VR23337";
-
-    	
-   	 
    	 /*********************************************
          *  
          *  #1.2 Describe Permissions.
          *  
          *********************************************/
-   	 /*IpPermission ipPermission = new IpPermission();
-   	 
-   	// SSH Permissions
-   	 ipPermission.withIpRanges("0.0.0.0/0")
-    		            .withIpProtocol("tcp")
-    		            .withFromPort(22)
-    		            .withToPort(22);
-    	
-    	AuthorizeSecurityGroupIngressRequest authorizeSecurityGroupIngressRequest =	new AuthorizeSecurityGroupIngressRequest();
-    	authorizeSecurityGroupIngressRequest.withGroupName(groupName).withIpPermissions(ipPermission);
-    	ec2.authorizeSecurityGroupIngress(authorizeSecurityGroupIngressRequest);
-        
-        // HTTP Permissions
-        ipPermission = new IpPermission();
-        ipPermission.withIpRanges("0.0.0.0/0")
-        				.withIpProtocol("tcp")
-        				.withFromPort(80)
-        				.withToPort(80);
-        authorizeSecurityGroupIngressRequest =	new AuthorizeSecurityGroupIngressRequest();
-        authorizeSecurityGroupIngressRequest.withGroupName(groupName).withIpPermissions(ipPermission);
-        ec2.authorizeSecurityGroupIngress(authorizeSecurityGroupIngressRequest);
-        CreateKeyPairRequest createKeyPairRequest = new CreateKeyPairRequest();
-        String keyName = "VR23337.pem";
-        createKeyPairRequest.withKeyName(keyName);           	
-        CreateKeyPairResult createKeyPairResult = ec2.createKeyPair(createKeyPairRequest);
-       	
-        KeyPair keyPair = new KeyPair();	    	
-        keyPair = createKeyPairResult.getKeyPair();           		    	
-        try {
-        String privateKey = keyPair.getKeyMaterial();
-        File keyFile = new File(keyName);
-        FileWriter fw;
-		
-			fw = new FileWriter(keyFile);
-		
-        fw.write(privateKey);
-        fw.close();
-        } catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
 		System.out.println("\nCreate an Instance");
 		RunInstancesRequest req =
 				new RunInstancesRequest()
@@ -461,8 +415,8 @@ public class App
 	public static String getScript() throws UnsupportedEncodingException {
 		ArrayList<String> script = new ArrayList<String>();
 		script.add("#!/usr/bin/env bash");
-		script.add("export " + "AWS_ACCESS_KEY_ID=\"AKIAIETFEW77FTVUWUNQ\"");
-		script.add("export " + "AWS_SECRET_ACCESS_KEY=\"v3Zl0tM4bd+0X51s9FBSvxzYEmfnJ0wcE7o46swA\"");
+		script.add("export " + "AWS_ACCESS_KEY_ID=\"Your_ACCESS\"");
+		script.add("export " + "AWS_SECRET_ACCESS_KEY=\"YOUR_SECRET\"");
 		script.add("wget https://manager15.s3-us-west-2.amazonaws.com/Manager.jar");
 		script.add("java -jar Manager.jar");
 		String str = new String(Base64.encodeBase64(join(script, "\n").getBytes()), "UTF-8");
